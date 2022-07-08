@@ -6,11 +6,7 @@
 
 <body>
   <div>
-    <h2>Illustration of Tidal Forces</h2>
-    <p>
-    This is the demonstration page of the tidal simulation javascript applet. For more details about 
-    the please turn to the <a href="https://beltoforion.de/en/tides">original tidal simulation article.</a>
-    </p>
+    <h2>Cho cô Lành</h2>
     <table class="noborder">
       <tr>
         <td  class="noborder">
@@ -19,12 +15,12 @@
 
         <td class="noborder">	
           <form> 
-            <h2>Animation Settings</h2> 
+            <h2>Cài đặt</h2> 
             <fieldset>
                 <b>Run / Stop</b><br/>
-                <button type="button" id="btnRun"        onClick="onClickRunStop()" style="width:120px; height:50px;">Run</button>
-                <button type="button" id="btnNeapTide"   onClick="onClickNeapTide()" style="width:120px; height:50px;">Neap Tide</button>
-                <button type="button" id="btnSpringTide" onClick="onClickSpringTide()" style="width:120px; height:50px;">Spring Tide</button>
+                <button type="button" id="btnRun"        onClick="onClickRunStop()" style="width:120px; height:50px;">Chạy</button>
+                <button type="button" id="btnNeapTide"   onClick="onClickNeapTide()" style="width:120px; height:50px;">Triều kiệt</button>
+                <button type="button" id="btnSpringTide" onClick="onClickSpringTide()" style="width:120px; height:50px;">Thủy triều cực đại</button>
             </fieldset>
 
             <fieldset> 
@@ -83,7 +79,7 @@
         cvid				: 'cvTides2',
         path	 			: './',	
         timestep	        : 86400/10,
-        lookAtTarget	    : 'CenterOfMass',
+        lookAtTarget	    : 'Earth',
         autoMove	        : true,
         setup		      	: 1,
         isRunning	      	: true,
@@ -95,8 +91,8 @@
         showSurfacePoints	: false,
         showGravAcc	   		: false,
         showCentAcc	        : false,
-        showTidalAcc	    : true,
-        showTidalAccSun		: true,
+        showTidalAcc	    : false,
+        showTidalAccSun		: false,
         showAccSum	        : true,
         enableRotation		: true,
         showBackgroundImage : false
