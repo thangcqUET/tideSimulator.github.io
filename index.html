@@ -6,7 +6,7 @@
 
 <body>
   <div>
-    <h2>Cho cô Lành</h2>
+    <h2>Mô phỏng giao động thủy triều trên Trái đất</h2>
     <table class="noborder">
       <tr>
         <td  class="noborder">
@@ -17,54 +17,58 @@
           <form> 
             <h2>Cài đặt</h2> 
             <fieldset>
-                <b>Run / Stop</b><br/>
-                <button type="button" id="btnRun"        onClick="onClickRunStop()" style="width:120px; height:50px;">Chạy</button>
+                <b>Điều khiển</b><br/>
+                <button type="button" id="btnRun"        onClick="onClickRunStop()" style="width:120px; height:50px;">Chạy / Dừng</button>
                 <button type="button" id="btnNeapTide"   onClick="onClickNeapTide()" style="width:120px; height:50px;">Triều kiệt</button>
-                <button type="button" id="btnSpringTide" onClick="onClickSpringTide()" style="width:120px; height:50px;">Thủy triều cực đại</button>
+                <button type="button" id="btnSpringTide" onClick="onClickSpringTide()" style="width:120px; height:50px;">Triều cực đại</button>
             </fieldset>
 
-            <fieldset> 
+            <!-- <fieldset> 
               <b>Look at</b> 
               <select id="cbViewPoint" name="viewpoint" onChange="onChangeViewPoint()">
 	        <option value="Earth">Earth</option>
                 <option value="CenterOfMass">Center of Mass</option>
               </select>
-            </fieldset>
+            </fieldset> -->
 
             <fieldset>  
-              <b>Render Features</b><br/>
+              <b>Hiển thị vật thể</b><br/>
               <input type="checkbox"  name="show orbits" value="true" id="cbShowOrbits"        onChange="onShowOrbits()"/> 
-              Show Orbits<br/>
+              Hiển thị quỹ đạo<br/>
               <input type="checkbox"  name="show orbits" value="true" id="cbShowMoon"   onChange="onShowMoon()"/> 
-              Show Moon<br/>
+              Hiển thị mặt trăng<br/>
               <input type="checkbox"  name="show orbits" value="true" id="cbShowSun"    onChange="onShowSun()"/> 
-              Show Sun<br/>
-            </fieldset>
-
-            <fieldset>  
-	      <b>Force display</b><br/>
-              <input type="checkbox"  name="force" value="true" id="cbShowTidalAcc"      onChange="onShowTidalAcc()"/>
-              Show Tidal Acceleration (Moon)<br/>
-              <input type="checkbox"  name="force" value="true" id="cbShowTidalAccSun"   onChange="onShowTidalAccSun()"/>
-              Show Tidal Acceleration (Sun)<br/>
+              Hiển thị hướng sáng mặt trời<br/>
               <input type="checkbox"  name="force" value="true" id="cbShowOcean"         onChange="onShowOcean()"/>
               Show Ocean<br/>
-              <input type="checkbox"  name="force" value="true" id="cbShowGravAcc"       onChange="onShowGravAcc()"/>
-              Show Gravitational Acceleration (Moon)<br/>
-              <input type="checkbox"  name="force" value="true" id="cbShowCentAcc"       onChange="onShowCentAcc()"/>
-              Show Centrifugal Acceleration<br/>
-              <input type="checkbox"  name="show orbits" value="true" id="cbShowSurfacePoints" onChange="onShowSurfacePoints()"/> 
-              Show Centrifugal Acceleration Sample Points<br/>
-              <input type="checkbox"  name="force" value="true" id="cbScaleForceToModel" onChange="onScaleForceToModel()"/>
-              Match Vector Directions to Model Scale<br/>
             </fieldset>
 
             <fieldset>  
-              <b>Misc</b><br/>
-              <input type="checkbox"  name="show orbits" value="true" id="cbEnableRotation"        onChange="onEnableRotation()"/> 
-              Enable Rotation<br/>
-              <input type="checkbox"  name="show orbits" value="true" id="cbShowBackgoundImage"    onChange="onShowBackgroundImage()"/> 
-              Show Background Image<br/>
+	      <b>Hiển thị lực tác động</b><br/>
+              <input type="checkbox"  name="force" value="true" id="cbShowTidalAcc"      onChange="onShowTidalAcc()"/>
+              Hiển thị gia tốc thủy triều (Mặt trăng)<br/>
+              <input type="checkbox"  name="force" value="true" id="cbShowTidalAccSun"   onChange="onShowTidalAccSun()"/>
+              Hiển thị gia tốc thủy triều (Mặt trời)<br/>
+              <input type="checkbox"  name="force" value="true" id="cbShowGravAcc"       onChange="onShowGravAcc()"/>
+              Hiển thị gia tốc trọng lực (Mặt trăng)<br/>
+              <input type="checkbox"  name="force" value="true" id="cbShowCentAcc"       onChange="onShowCentAcc()"/>
+              Hiển thị gia tốc ly tâm<br/>
+              <!-- <input type="checkbox"  name="show orbits" value="true" id="cbShowSurfacePoints" onChange="onShowSurfacePoints()"/> 
+              Show Centrifugal Acceleration Sample Points<br/>
+              <input type="checkbox"  name="force" value="true" id="cbScaleForceToModel" onChange="onScaleForceToModel()"/>
+              Match Vector Directions to Model Scale<br/> -->
+            </fieldset>
+
+            <fieldset>  
+              <b>Khác</b><br/>
+              <!-- <input type="checkbox"  name="show orbits" value="true" id="cbEnableRotation"        onChange="onEnableRotation()"/> 
+              Enable Rotation<br/> -->
+              <input type="checkbox"  name="show orbits" value="true" id="cbShowBackgroundImage"    onChange="onShowBackgroundImage()"/> 
+              Hiển thị hình nền<br/>
+              <b>Bật nhạc nền</b><br>
+              <audio id="music" controls loop>
+                <source src="./musics/songbien.mp3" type="audio/mp3"/>
+              </audio>
             </fieldset>
 
           </form>
@@ -78,7 +82,7 @@
     var tidalModel = window.TidalSimulationLibrary.createTidalSimulation({	
         cvid				: 'cvTides2',
         path	 			: './',	
-        timestep	        : 86400/10,
+        timestep	        : 5000,//86400/10,
         lookAtTarget	    : 'Earth',
         autoMove	        : true,
         setup		      	: 1,
@@ -95,16 +99,16 @@
         showTidalAccSun		: false,
         showAccSum	        : true,
         enableRotation		: true,
-        showBackgroundImage : false
+        showBackgroundImage : true
     });
 
     updateControls()
 
     function updateControls() {
             // Set up formular controls
-            document.getElementById("cbViewPoint").value             = tidalModel.config.lookAtTarget;
+            // document.getElementById("cbViewPoint").value             = tidalModel.config.lookAtTarget;
             document.getElementById("cbShowOrbits").checked          = tidalModel.config.showEarthOrbit || model2.config.showMoonOrbit;
-            document.getElementById("cbShowSurfacePoints").checked   = tidalModel.config.showSurfacePoints;
+            // document.getElementById("cbShowSurfacePoints").checked   = tidalModel.config.showSurfacePoints;
             document.getElementById("cbShowTidalAcc").checked        = tidalModel.config.showTidalAcc;
             document.getElementById("cbShowTidalAccSun").checked     = tidalModel.config.showTidalAccSun;
             document.getElementById("cbShowOcean").checked           = tidalModel.config.showAccSum;
@@ -112,23 +116,25 @@
             document.getElementById("cbShowCentAcc").checked         = tidalModel.config.showCentAcc;
             document.getElementById("cbShowMoon").checked            = tidalModel.config.showMoon;
             document.getElementById("cbShowSun").checked             = tidalModel.config.showSun;
-            document.getElementById("cbScaleForceToModel").checked   = tidalModel.config.scaleForceToModel;
-            document.getElementById("cbEnableRotation").checked      = tidalModel.config.enableRotation;				
+            // document.getElementById("cbScaleForceToModel").checked   = tidalModel.config.scaleForceToModel;
+            // document.getElementById("cbEnableRotation").checked      = tidalModel.config.enableRotation;				
             document.getElementById("cbShowBackgroundImage").checked = tidalModel.config.showBackgroundImage;								
-
         if (tidalModel.config.autoMove) {
-            document.getElementById("btnRun").innerHTML  = "Stop";
+            document.getElementById("btnRun").innerHTML  = "Dừng";
         } else {
-            document.getElementById("btnRun").innerHTML  = "Run";
+            document.getElementById("btnRun").innerHTML  = "Chạy";
         }
     }
 
+    function onPlayMusic() {
+        
+    }
     function onChangeViewPoint() {
         tidalModel.config.lookAtTarget = document.getElementById("cbViewPoint").value;
     }
 
     function onShowBackgroundImage() {
-        var check = document.getElementById("cbShowBackgoundImage").checked;
+        var check = document.getElementById("cbShowBackgroundImage").checked;
         tidalModel.config.showBackgroundImage = check;
     }
 
