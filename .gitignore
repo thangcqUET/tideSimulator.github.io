@@ -1,4 +1,4 @@
 *.js.map
 *.sqlite
-*/node_modules/*
+node_modules
 shared/*.js
