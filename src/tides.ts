@@ -575,7 +575,7 @@ export class TidalSimulation {
                                             this.style.colMoon);
                 	this.ctx.font="20px Arial"
                 	this.ctx.fillStyle='White'
-                	this.ctx.fillText("Moon (385000 km)", posEarth.x + 3 * buf.x - 40, posEarth.y + 3 * buf.y + 40)
+                	this.ctx.fillText("Mặt trăng (385000 km)", posEarth.x + 3 * buf.x - 40, posEarth.y + 3 * buf.y + 40)
         	} else {
 	                // bright side
         	        let colOutline = this.style.colMoonOutline
@@ -613,7 +613,7 @@ export class TidalSimulation {
 
                 	this.ctx.font="20px Arial"
         	        this.ctx.fillStyle='White'
-                	this.ctx.fillText("Moon", posMoon.x - 24, posMoon.y + offset + 25)
+                	this.ctx.fillText("Mặt trăng", posMoon.x - 24, posMoon.y + offset + 25)
 	        }
         }
 

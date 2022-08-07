@@ -440,7 +440,7 @@ export class TidalSimulation {
             this.ctx.drawVector(posEarth.x + 3 * buf.x, posEarth.y + 3 * buf.y, buf.x, buf.y, 30, 2, this.style.colMoon);
             this.ctx.font = "20px Arial";
             this.ctx.fillStyle = 'White';
-            this.ctx.fillText("Moon (385000 km)", posEarth.x + 3 * buf.x - 40, posEarth.y + 3 * buf.y + 40);
+            this.ctx.fillText("Mặt trăng (385000 km)", posEarth.x + 3 * buf.x - 40, posEarth.y + 3 * buf.y + 40);
         }
         else {
             // bright side
@@ -474,7 +474,7 @@ export class TidalSimulation {
             let offset = this.moon.r * this.scaleSize;
             this.ctx.font = "20px Arial";
             this.ctx.fillStyle = 'White';
-            this.ctx.fillText("Moon", posMoon.x - 24, posMoon.y + offset + 25);
+            this.ctx.fillText("Mặt trăng", posMoon.x - 24, posMoon.y + offset + 25);
         }
     }
     renderEarth() {
