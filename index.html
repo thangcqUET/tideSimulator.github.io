@@ -7,6 +7,7 @@
 <body>
   <div>
     <h2>Mô phỏng dao động thủy triều trên Trái đất</h2>
+    <p><b>Tên tác giả:</b> Phạm Thị Lành, Phan Đăng Sơn</p>
     <table class="noborder">
       <tr>
         <td  class="noborder">
@@ -77,11 +78,11 @@
   </table>
 </div>
 
-<script src="./tides-bundle.js"></script>
+<script src="./dist/tides-bundle.js"></script>
 <script>
     var tidalModel = window.TidalSimulationLibrary.createTidalSimulation({	
         cvid				: 'cvTides2',
-        path	 			: './',	
+        path	 			: './dist/',	
         timestep	        : 5000,//86400/10,
         lookAtTarget	    : 'Earth',
         autoMove	        : true,
